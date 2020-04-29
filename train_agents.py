@@ -54,11 +54,11 @@ def train_agents(n_episodes=10000, t_max=1000):
         if i_episode % PRINT_EVERY == 0:
             print(f'\rEpisode {i_episode}\tAverage Score: {np.mean(scores_deque) : .3f}')
 
-        if np.mean(scores_deque) >= 0.5 and len(scores_deque) >= 100:
+        if np.mean(scores_deque) >= 2.0 and len(scores_deque) >= 100:
             for i, agent in enumerate(maddpg.agents):
                 torch.save(agent.actor_local.state_dict(), f'models/checkpoint_actor_local_{i}.pth')
                 torch.save(agent.critic_local.state_dict(), f'models/checkpoint_critic_local_{i}.pth')
-            print(f'\nSaved Model: Episode {i_episode}\tAverage Score: {np.mean(scores_deque) :.2f}')
+            print(f'\nSaved Model: Episode {i_episode}\tAverage Score: {np.mean(scores_deque) : .3f}')
             break
 
     return scores_list

@@ -16,3 +16,5 @@ TAU = 1e-3
 ```
 
 Plot with rewards can be found in model/scores.png
+
+Current implementation reaches average score 2.0 in 2468 episodes
